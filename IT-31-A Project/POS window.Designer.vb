@@ -23,10 +23,6 @@ Partial Class posArea
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Cust_Name = New System.Windows.Forms.TextBox()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView5 = New System.Windows.Forms.DataGridView()
         Me.DeleteOrdersBtn = New System.Windows.Forms.Button()
@@ -56,10 +52,10 @@ Partial Class posArea
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
+        Me.Button10 = New System.Windows.Forms.Button()
+        Me.Button11 = New System.Windows.Forms.Button()
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,38 +71,6 @@ Partial Class posArea
         Me.Cust_Name.Size = New System.Drawing.Size(168, 20)
         Me.Cust_Name.TabIndex = 44
         Me.Cust_Name.Text = "Enter Item"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(229, 175)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(114, 87)
-        Me.DataGridView1.TabIndex = 46
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(369, 175)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(114, 87)
-        Me.DataGridView2.TabIndex = 47
-        '
-        'DataGridView3
-        '
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(229, 291)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.Size = New System.Drawing.Size(114, 87)
-        Me.DataGridView3.TabIndex = 48
-        '
-        'DataGridView4
-        '
-        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView4.Location = New System.Drawing.Point(369, 291)
-        Me.DataGridView4.Name = "DataGridView4"
-        Me.DataGridView4.Size = New System.Drawing.Size(114, 87)
-        Me.DataGridView4.TabIndex = 49
         '
         'Button1
         '
@@ -125,14 +89,14 @@ Partial Class posArea
         Me.DataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView5.Location = New System.Drawing.Point(498, 175)
         Me.DataGridView5.Name = "DataGridView5"
-        Me.DataGridView5.Size = New System.Drawing.Size(130, 165)
+        Me.DataGridView5.Size = New System.Drawing.Size(245, 165)
         Me.DataGridView5.TabIndex = 51
         '
         'DeleteOrdersBtn
         '
         Me.DeleteOrdersBtn.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.DeleteOrdersBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.DeleteOrdersBtn.Location = New System.Drawing.Point(693, 175)
+        Me.DeleteOrdersBtn.Location = New System.Drawing.Point(567, 145)
         Me.DeleteOrdersBtn.Margin = New System.Windows.Forms.Padding(2)
         Me.DeleteOrdersBtn.Name = "DeleteOrdersBtn"
         Me.DeleteOrdersBtn.Size = New System.Drawing.Size(49, 24)
@@ -144,7 +108,7 @@ Partial Class posArea
         '
         Me.EditOrdersBtn.BackColor = System.Drawing.Color.Lime
         Me.EditOrdersBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.EditOrdersBtn.Location = New System.Drawing.Point(633, 175)
+        Me.EditOrdersBtn.Location = New System.Drawing.Point(507, 145)
         Me.EditOrdersBtn.Margin = New System.Windows.Forms.Padding(2)
         Me.EditOrdersBtn.Name = "EditOrdersBtn"
         Me.EditOrdersBtn.Size = New System.Drawing.Size(49, 24)
@@ -155,7 +119,7 @@ Partial Class posArea
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(672, 160)
+        Me.Label12.Location = New System.Drawing.Point(546, 130)
         Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(37, 13)
@@ -419,11 +383,51 @@ Partial Class posArea
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
         '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(225, 189)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(95, 55)
+        Me.Button8.TabIndex = 78
+        Me.Button8.Text = "COFFEE"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
+        'Button9
+        '
+        Me.Button9.Location = New System.Drawing.Point(364, 189)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(95, 55)
+        Me.Button9.TabIndex = 78
+        Me.Button9.Text = "SNACKS"
+        Me.Button9.UseVisualStyleBackColor = True
+        '
+        'Button10
+        '
+        Me.Button10.Location = New System.Drawing.Point(225, 275)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(95, 55)
+        Me.Button10.TabIndex = 78
+        Me.Button10.Text = "MEALS"
+        Me.Button10.UseVisualStyleBackColor = True
+        '
+        'Button11
+        '
+        Me.Button11.Location = New System.Drawing.Point(364, 275)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(95, 55)
+        Me.Button11.TabIndex = 78
+        Me.Button11.Text = "OTHER DRINKS"
+        Me.Button11.UseVisualStyleBackColor = True
+        '
         'posArea
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(968, 400)
+        Me.Controls.Add(Me.Button11)
+        Me.Controls.Add(Me.Button10)
+        Me.Controls.Add(Me.Button9)
+        Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Label14)
@@ -447,10 +451,6 @@ Partial Class posArea
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.DataGridView5)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.DataGridView4)
-        Me.Controls.Add(Me.DataGridView3)
-        Me.Controls.Add(Me.DataGridView2)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Cust_Name)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox4)
@@ -459,10 +459,6 @@ Partial Class posArea
         Me.Controls.Add(Me.ShapeContainer1)
         Me.Name = "posArea"
         Me.Text = "POS"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -477,10 +473,6 @@ Partial Class posArea
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
     Friend WithEvents Cust_Name As System.Windows.Forms.TextBox
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridView4 As System.Windows.Forms.DataGridView
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents DataGridView5 As System.Windows.Forms.DataGridView
     Friend WithEvents DeleteOrdersBtn As System.Windows.Forms.Button
@@ -506,4 +498,8 @@ Partial Class posArea
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents Button9 As System.Windows.Forms.Button
+    Friend WithEvents Button10 As System.Windows.Forms.Button
+    Friend WithEvents Button11 As System.Windows.Forms.Button
 End Class
