@@ -33,7 +33,7 @@ Partial Class posArea
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Cust_Address = New System.Windows.Forms.TextBox()
         Me.Cust_PhoneNum = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.custName = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -53,10 +53,11 @@ Partial Class posArea
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnOpenProdList = New System.Windows.Forms.Button()
-        Me.Button9 = New System.Windows.Forms.Button()
-        Me.Button10 = New System.Windows.Forms.Button()
-        Me.Button11 = New System.Windows.Forms.Button()
+        Me.btnSnacksArea = New System.Windows.Forms.Button()
+        Me.btnMealsArea = New System.Windows.Forms.Button()
+        Me.btnDrinksArea = New System.Windows.Forms.Button()
         Me.quantNum = New System.Windows.Forms.Label()
+        Me.btnSaveCust = New System.Windows.Forms.Button()
         CType(Me.dgvOrderGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -172,13 +173,13 @@ Partial Class posArea
         Me.Cust_PhoneNum.Size = New System.Drawing.Size(115, 20)
         Me.Cust_PhoneNum.TabIndex = 63
         '
-        'TextBox2
+        'custName
         '
-        Me.TextBox2.Location = New System.Drawing.Point(842, 187)
-        Me.TextBox2.Margin = New System.Windows.Forms.Padding(2)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(115, 20)
-        Me.TextBox2.TabIndex = 62
+        Me.custName.Location = New System.Drawing.Point(842, 187)
+        Me.custName.Margin = New System.Windows.Forms.Padding(2)
+        Me.custName.Name = "custName"
+        Me.custName.Size = New System.Drawing.Size(115, 20)
+        Me.custName.TabIndex = 62
         '
         'Label8
         '
@@ -247,7 +248,7 @@ Partial Class posArea
         Me.Button3.BackColor = System.Drawing.Color.YellowGreen
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Palatino Linotype", 7.75!, System.Drawing.FontStyle.Bold)
-        Me.Button3.Location = New System.Drawing.Point(810, 317)
+        Me.Button3.Location = New System.Drawing.Point(808, 346)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(105, 23)
         Me.Button3.TabIndex = 66
@@ -393,32 +394,32 @@ Partial Class posArea
         Me.btnOpenProdList.Text = "COFFEE"
         Me.btnOpenProdList.UseVisualStyleBackColor = True
         '
-        'Button9
+        'btnSnacksArea
         '
-        Me.Button9.Location = New System.Drawing.Point(364, 189)
-        Me.Button9.Name = "Button9"
-        Me.Button9.Size = New System.Drawing.Size(95, 55)
-        Me.Button9.TabIndex = 78
-        Me.Button9.Text = "SNACKS"
-        Me.Button9.UseVisualStyleBackColor = True
+        Me.btnSnacksArea.Location = New System.Drawing.Point(364, 189)
+        Me.btnSnacksArea.Name = "btnSnacksArea"
+        Me.btnSnacksArea.Size = New System.Drawing.Size(95, 55)
+        Me.btnSnacksArea.TabIndex = 78
+        Me.btnSnacksArea.Text = "SNACKS"
+        Me.btnSnacksArea.UseVisualStyleBackColor = True
         '
-        'Button10
+        'btnMealsArea
         '
-        Me.Button10.Location = New System.Drawing.Point(225, 275)
-        Me.Button10.Name = "Button10"
-        Me.Button10.Size = New System.Drawing.Size(95, 55)
-        Me.Button10.TabIndex = 78
-        Me.Button10.Text = "MEALS"
-        Me.Button10.UseVisualStyleBackColor = True
+        Me.btnMealsArea.Location = New System.Drawing.Point(225, 275)
+        Me.btnMealsArea.Name = "btnMealsArea"
+        Me.btnMealsArea.Size = New System.Drawing.Size(95, 55)
+        Me.btnMealsArea.TabIndex = 78
+        Me.btnMealsArea.Text = "MEALS"
+        Me.btnMealsArea.UseVisualStyleBackColor = True
         '
-        'Button11
+        'btnDrinksArea
         '
-        Me.Button11.Location = New System.Drawing.Point(364, 275)
-        Me.Button11.Name = "Button11"
-        Me.Button11.Size = New System.Drawing.Size(95, 55)
-        Me.Button11.TabIndex = 78
-        Me.Button11.Text = "OTHER DRINKS"
-        Me.Button11.UseVisualStyleBackColor = True
+        Me.btnDrinksArea.Location = New System.Drawing.Point(364, 275)
+        Me.btnDrinksArea.Name = "btnDrinksArea"
+        Me.btnDrinksArea.Size = New System.Drawing.Size(95, 55)
+        Me.btnDrinksArea.TabIndex = 78
+        Me.btnDrinksArea.Text = "OTHER DRINKS"
+        Me.btnDrinksArea.UseVisualStyleBackColor = True
         '
         'quantNum
         '
@@ -431,15 +432,28 @@ Partial Class posArea
         Me.quantNum.TabIndex = 79
         Me.quantNum.Text = "0"
         '
+        'btnSaveCust
+        '
+        Me.btnSaveCust.BackColor = System.Drawing.Color.YellowGreen
+        Me.btnSaveCust.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSaveCust.Font = New System.Drawing.Font("Palatino Linotype", 7.75!, System.Drawing.FontStyle.Bold)
+        Me.btnSaveCust.Location = New System.Drawing.Point(819, 315)
+        Me.btnSaveCust.Name = "btnSaveCust"
+        Me.btnSaveCust.Size = New System.Drawing.Size(80, 23)
+        Me.btnSaveCust.TabIndex = 80
+        Me.btnSaveCust.Text = "SAVE"
+        Me.btnSaveCust.UseVisualStyleBackColor = False
+        '
         'posArea
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(968, 400)
+        Me.Controls.Add(Me.btnSaveCust)
         Me.Controls.Add(Me.quantNum)
-        Me.Controls.Add(Me.Button11)
-        Me.Controls.Add(Me.Button10)
-        Me.Controls.Add(Me.Button9)
+        Me.Controls.Add(Me.btnDrinksArea)
+        Me.Controls.Add(Me.btnMealsArea)
+        Me.Controls.Add(Me.btnSnacksArea)
         Me.Controls.Add(Me.btnOpenProdList)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button5)
@@ -451,7 +465,7 @@ Partial Class posArea
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Cust_Address)
         Me.Controls.Add(Me.Cust_PhoneNum)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.custName)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
@@ -496,7 +510,7 @@ Partial Class posArea
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Cust_Address As System.Windows.Forms.TextBox
     Friend WithEvents Cust_PhoneNum As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents custName As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
@@ -512,8 +526,9 @@ Partial Class posArea
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents btnOpenProdList As System.Windows.Forms.Button
-    Friend WithEvents Button9 As System.Windows.Forms.Button
-    Friend WithEvents Button10 As System.Windows.Forms.Button
-    Friend WithEvents Button11 As System.Windows.Forms.Button
+    Friend WithEvents btnSnacksArea As System.Windows.Forms.Button
+    Friend WithEvents btnMealsArea As System.Windows.Forms.Button
+    Friend WithEvents btnDrinksArea As System.Windows.Forms.Button
     Friend WithEvents quantNum As System.Windows.Forms.Label
+    Friend WithEvents btnSaveCust As System.Windows.Forms.Button
 End Class
