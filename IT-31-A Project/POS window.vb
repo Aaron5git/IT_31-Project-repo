@@ -1,4 +1,4 @@
-﻿Public Class Form2
+﻿Public Class posArea
 
     Private Sub Label1_Click(sender As Object, e As EventArgs)
 
@@ -38,5 +38,17 @@
 
     Private Sub Label1_Click_1(sender As Object, e As EventArgs) Handles Label1.Click
 
+    End Sub
+
+    Private Sub posArea_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Width = 767
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Width = 984
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Width = 767
     End Sub
 End Class

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form2
+Partial Class posArea
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -419,7 +419,7 @@ Partial Class Form2
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
         '
-        'Form2
+        'posArea
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -457,8 +457,8 @@ Partial Class Form2
         Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.ShapeContainer1)
-        Me.Name = "Form2"
-        Me.Text = "Form2"
+        Me.Name = "posArea"
+        Me.Text = "POS"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()

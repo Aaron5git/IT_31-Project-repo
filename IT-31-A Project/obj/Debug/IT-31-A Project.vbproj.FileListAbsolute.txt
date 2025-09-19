@@ -22,3 +22,23 @@ C:\Users\JM_PC\Documents\IT-31-A Project-20250919T012630Z-1-001\IT-31-A Project\
 C:\Users\JM_PC\Documents\IT-31-A Project-20250919T012630Z-1-001\IT-31-A Project\obj\Debug\IT-31-A Project.exe
 C:\Users\JM_PC\Documents\IT-31-A Project-20250919T012630Z-1-001\IT-31-A Project\obj\Debug\IT-31-A Project.xml
 C:\Users\JM_PC\Documents\IT-31-A Project-20250919T012630Z-1-001\IT-31-A Project\obj\Debug\IT-31-A Project.pdb
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\bin\Debug\IT-31-A Project.exe.config
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT-31-A Project.exe
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT-31-A Project.xml
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT-31-A Project.pdb
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\bin\Debug\IT-31-A Project.exe
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\bin\Debug\IT-31-A Project.pdb
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\bin\Debug\IT-31-A Project.xml
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\bin\Debug\IBM.Data.DB2.dll
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT-31-A Project.vbprojResolveAssemblyReference.cache
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.Form4.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.Form1.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.Admin.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.Menu.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.SuppAdd.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.SupplyOrder.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.Form3.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.Resources.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.SupplierArea.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT-31-A Project.vbproj.GenerateResource.Cache
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.posArea.resources

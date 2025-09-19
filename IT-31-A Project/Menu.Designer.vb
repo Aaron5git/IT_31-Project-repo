@@ -74,7 +74,7 @@ Partial Class Menu
         '
         Me.posOpener_btn.BackColor = System.Drawing.Color.YellowGreen
         Me.posOpener_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.posOpener_btn.Location = New System.Drawing.Point(145, 125)
+        Me.posOpener_btn.Location = New System.Drawing.Point(145, 128)
         Me.posOpener_btn.Name = "posOpener_btn"
         Me.posOpener_btn.Size = New System.Drawing.Size(137, 26)
         Me.posOpener_btn.TabIndex = 55
