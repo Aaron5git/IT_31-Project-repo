@@ -22,9 +22,6 @@ Partial Class SupplyOrder
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -40,49 +37,18 @@ Partial Class SupplyOrder
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox5 = New System.Windows.Forms.PictureBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.BackColor = System.Drawing.Color.White
-        Me.PictureBox4.Image = Global.IT_31_A_Project.My.Resources.Resources.logo_placeholder
-        Me.PictureBox4.Location = New System.Drawing.Point(10, 13)
-        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(2)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(87, 66)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox4.TabIndex = 78
-        Me.PictureBox4.TabStop = False
-        '
-        'PictureBox5
-        '
-        Me.PictureBox5.BackColor = System.Drawing.Color.White
-        Me.PictureBox5.Image = Global.IT_31_A_Project.My.Resources.Resources.cafe_name
-        Me.PictureBox5.Location = New System.Drawing.Point(101, 9)
-        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(2)
-        Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(186, 70)
-        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox5.TabIndex = 77
-        Me.PictureBox5.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.Location = New System.Drawing.Point(-1, 0)
-        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(836, 100)
-        Me.PictureBox1.TabIndex = 76
-        Me.PictureBox1.TabStop = False
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(101, 178)
+        Me.TextBox1.Location = New System.Drawing.Point(113, 178)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(220, 20)
         Me.TextBox1.TabIndex = 85
@@ -91,7 +57,7 @@ Partial Class SupplyOrder
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.75!)
-        Me.Label4.Location = New System.Drawing.Point(27, 178)
+        Me.Label4.Location = New System.Drawing.Point(37, 178)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(70, 20)
         Me.Label4.TabIndex = 83
@@ -111,7 +77,7 @@ Partial Class SupplyOrder
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.75!)
-        Me.Label1.Location = New System.Drawing.Point(36, 215)
+        Me.Label1.Location = New System.Drawing.Point(66, 215)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(41, 20)
         Me.Label1.TabIndex = 83
@@ -119,7 +85,7 @@ Partial Class SupplyOrder
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(101, 215)
+        Me.TextBox2.Location = New System.Drawing.Point(113, 215)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(220, 20)
         Me.TextBox2.TabIndex = 85
@@ -136,7 +102,7 @@ Partial Class SupplyOrder
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(101, 250)
+        Me.TextBox3.Location = New System.Drawing.Point(113, 250)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(220, 20)
         Me.TextBox3.TabIndex = 85
@@ -145,7 +111,7 @@ Partial Class SupplyOrder
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.75!)
-        Me.Label5.Location = New System.Drawing.Point(36, 287)
+        Me.Label5.Location = New System.Drawing.Point(21, 287)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(86, 20)
         Me.Label5.TabIndex = 83
@@ -153,7 +119,7 @@ Partial Class SupplyOrder
         '
         'TextBox4
         '
-        Me.TextBox4.Location = New System.Drawing.Point(101, 287)
+        Me.TextBox4.Location = New System.Drawing.Point(113, 287)
         Me.TextBox4.Name = "TextBox4"
         Me.TextBox4.Size = New System.Drawing.Size(220, 20)
         Me.TextBox4.TabIndex = 85
@@ -217,6 +183,40 @@ Partial Class SupplyOrder
         Me.TextBox5.Size = New System.Drawing.Size(220, 20)
         Me.TextBox5.TabIndex = 85
         '
+        'PictureBox4
+        '
+        Me.PictureBox4.BackColor = System.Drawing.Color.White
+        Me.PictureBox4.Image = Global.IT_31_A_Project.My.Resources.Resources.logo_placeholder
+        Me.PictureBox4.Location = New System.Drawing.Point(10, 13)
+        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox4.Name = "PictureBox4"
+        Me.PictureBox4.Size = New System.Drawing.Size(87, 66)
+        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox4.TabIndex = 78
+        Me.PictureBox4.TabStop = False
+        '
+        'PictureBox5
+        '
+        Me.PictureBox5.BackColor = System.Drawing.Color.White
+        Me.PictureBox5.Image = Global.IT_31_A_Project.My.Resources.Resources.cafe_name
+        Me.PictureBox5.Location = New System.Drawing.Point(101, 9)
+        Me.PictureBox5.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox5.Name = "PictureBox5"
+        Me.PictureBox5.Size = New System.Drawing.Size(186, 70)
+        Me.PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox5.TabIndex = 77
+        Me.PictureBox5.TabStop = False
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.White
+        Me.PictureBox1.Location = New System.Drawing.Point(-1, 0)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(836, 100)
+        Me.PictureBox1.TabIndex = 76
+        Me.PictureBox1.TabStop = False
+        '
         'SupplyOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -242,10 +242,10 @@ Partial Class SupplyOrder
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "SupplyOrder"
         Me.Text = "Supplier Orders"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
