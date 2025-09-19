@@ -29,7 +29,7 @@ Partial Class posArea
         Me.EditOrdersBtn = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.costArea = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Cust_Address = New System.Windows.Forms.TextBox()
         Me.Cust_PhoneNum = New System.Windows.Forms.TextBox()
@@ -56,6 +56,7 @@ Partial Class posArea
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
+        Me.quantNum = New System.Windows.Forms.Label()
         CType(Me.dgvOrderGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,7 +78,7 @@ Partial Class posArea
         Me.Button1.BackColor = System.Drawing.Color.YellowGreen
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Palatino Linotype", 7.75!, System.Drawing.FontStyle.Bold)
-        Me.Button1.Location = New System.Drawing.Point(633, 113)
+        Me.Button1.Location = New System.Drawing.Point(650, 103)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(93, 27)
         Me.Button1.TabIndex = 50
@@ -96,7 +97,7 @@ Partial Class posArea
         '
         Me.DeleteOrdersBtn.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.DeleteOrdersBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.DeleteOrdersBtn.Location = New System.Drawing.Point(567, 145)
+        Me.DeleteOrdersBtn.Location = New System.Drawing.Point(600, 145)
         Me.DeleteOrdersBtn.Margin = New System.Windows.Forms.Padding(2)
         Me.DeleteOrdersBtn.Name = "DeleteOrdersBtn"
         Me.DeleteOrdersBtn.Size = New System.Drawing.Size(49, 24)
@@ -108,7 +109,7 @@ Partial Class posArea
         '
         Me.EditOrdersBtn.BackColor = System.Drawing.Color.Lime
         Me.EditOrdersBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.EditOrdersBtn.Location = New System.Drawing.Point(507, 145)
+        Me.EditOrdersBtn.Location = New System.Drawing.Point(515, 145)
         Me.EditOrdersBtn.Margin = New System.Windows.Forms.Padding(2)
         Me.EditOrdersBtn.Name = "EditOrdersBtn"
         Me.EditOrdersBtn.Size = New System.Drawing.Size(49, 24)
@@ -119,7 +120,7 @@ Partial Class posArea
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(546, 130)
+        Me.Label12.Location = New System.Drawing.Point(558, 130)
         Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(37, 13)
@@ -136,12 +137,12 @@ Partial Class posArea
         Me.Label4.TabIndex = 55
         Me.Label4.Text = "Total"
         '
-        'TextBox1
+        'costArea
         '
-        Me.TextBox1.Location = New System.Drawing.Point(540, 343)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(88, 20)
-        Me.TextBox1.TabIndex = 56
+        Me.costArea.Location = New System.Drawing.Point(540, 343)
+        Me.costArea.Name = "costArea"
+        Me.costArea.Size = New System.Drawing.Size(88, 20)
+        Me.costArea.TabIndex = 56
         '
         'Button2
         '
@@ -419,11 +420,23 @@ Partial Class posArea
         Me.Button11.Text = "OTHER DRINKS"
         Me.Button11.UseVisualStyleBackColor = True
         '
+        'quantNum
+        '
+        Me.quantNum.AutoSize = True
+        Me.quantNum.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.quantNum.Location = New System.Drawing.Point(574, 148)
+        Me.quantNum.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.quantNum.Name = "quantNum"
+        Me.quantNum.Size = New System.Drawing.Size(15, 18)
+        Me.quantNum.TabIndex = 79
+        Me.quantNum.Text = "0"
+        '
         'posArea
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(968, 400)
+        Me.Controls.Add(Me.quantNum)
         Me.Controls.Add(Me.Button11)
         Me.Controls.Add(Me.Button10)
         Me.Controls.Add(Me.Button9)
@@ -444,7 +457,7 @@ Partial Class posArea
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.costArea)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.DeleteOrdersBtn)
         Me.Controls.Add(Me.EditOrdersBtn)
@@ -479,7 +492,7 @@ Partial Class posArea
     Friend WithEvents EditOrdersBtn As System.Windows.Forms.Button
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents costArea As System.Windows.Forms.TextBox
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Cust_Address As System.Windows.Forms.TextBox
     Friend WithEvents Cust_PhoneNum As System.Windows.Forms.TextBox
@@ -502,4 +515,5 @@ Partial Class posArea
     Friend WithEvents Button9 As System.Windows.Forms.Button
     Friend WithEvents Button10 As System.Windows.Forms.Button
     Friend WithEvents Button11 As System.Windows.Forms.Button
+    Friend WithEvents quantNum As System.Windows.Forms.Label
 End Class
