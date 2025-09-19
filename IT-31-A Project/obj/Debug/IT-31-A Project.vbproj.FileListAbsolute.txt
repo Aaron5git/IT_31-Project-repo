@@ -1,0 +1,5 @@
+C:\Users\User\Desktop\IT_31 Proj\IT-31-A Orevillo - Copy\IT-31-A Orevillo\bin\Debug\IT-31-A Project.exe.config
+C:\Users\User\Desktop\IT_31 Proj\IT-31-A Project\IT-31-A Orevillo\bin\Debug\IT-31-A Project.exe.config
+C:\Users\User\Desktop\IT_31 Proj\IT-31-A Project\IT-31-A Project\bin\Debug\IT-31-A Project.exe.config
+C:\Users\User\Downloads\IT-31-A Project\bin\Debug\IT-31-A Project.exe.config
+C:\Users\JM_PC\Documents\IT-31-A Project-20250919T012630Z-1-001\IT-31-A Project\bin\Debug\IT-31-A Project.exe.config

@@ -1,0 +1,5 @@
+C:\Users\Francis\Documents\Visual Studio 2012\Projects\IT-31-A Orevillo\IT-31-A Orevillo\bin\Debug\IT-31-A Orevillo.exe.config
+C:\Users\User\Desktop\IT_31 Proj\IT-31-A Orevillo\IT-31-A Orevillo\bin\Debug\IT-31-A Orevillo.exe.config
+C:\Users\User\Desktop\IT_31 Proj\IT-31-A Orevillo\IT-31-A Orevillo\bin\Debug\IT-31-A.exe.config
+C:\Users\User\Desktop\IT_31 Proj\IT-31-A Orevillo\IT-31-A Orevillo\bin\Debug\IT-31-A Proj.exe.config
+C:\Users\User\Desktop\IT_31 Proj\IT-31-A Orevillo - Copy\IT-31-A Orevillo\bin\Debug\IT-31-A Proj.exe.config
