@@ -24,18 +24,18 @@ Public Class EmployeeAddEditModal
             End If
 
             ' First check if employee exists
-            sqlComm = New DB2Command("SELECT COUNT(*) FROM Employee WHERE EmpID = '" & empId & "'", dbConn)
+            sqlComm = New DB2Command("SELECT COUNT(*) FROM EMPLOYEE WHERE EMPID = '" & empId & "'", dbConn)
             Dim exists As Integer = CInt(sqlComm.ExecuteScalar())
 
 
             If exists > 0 Then
                 ' Update
-                sqlComm = New DB2Command("UPDATE Employee SET EmpName = '" & empName & "', DepID = '" & depId & "', EmpType = '" & empType & "' WHERE EmpID = '" & empId & "'", dbConn)
+                sqlComm = New DB2Command("UPDATE EMPLOYEE SET EMPNAME = '" & empName & "', DEPID = '" & depId & "', EMPTYPE = '" & empType & "' WHERE EMPID = '" & empId & "'", dbConn)
                 Dim rowsUpdated As Integer = sqlComm.ExecuteNonQuery()
                 MessageBox.Show(rowsUpdated.ToString() & " record(s) updated successfully.")
             Else
                 ' Insert
-                sqlComm = New DB2Command("INSERT INTO Employee (EmpID, EmpName, DepID, EmpType) VALUES ('" & empId & "', '" & empName & "', '" & depId & "', '" & empType & "')", dbConn)
+                sqlComm = New DB2Command("INSERT INTO EMPLOYEE (EMPID, EMPNAME, DEPID, EMPTYPE) VALUES ('" & empId & "', '" & empName & "', '" & depId & "', '" & empType & "')", dbConn)
                 Dim rowsInserted As Integer = sqlComm.ExecuteNonQuery()
                 MessageBox.Show(rowsInserted.ToString() & " record(s) inserted successfully.")
             End If

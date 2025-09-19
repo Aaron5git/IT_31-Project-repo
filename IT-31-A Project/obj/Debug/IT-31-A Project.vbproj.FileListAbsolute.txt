@@ -47,3 +47,24 @@ C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\bin\Debug\IT-
 C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT-31-A Project.exe
 C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT-31-A Project.xml
 C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT-31-A Project.pdb
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\bin\Debug\IT-31-A Project.exe
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\bin\Debug\IT-31-A Project.pdb
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\bin\Debug\IT-31-A Project.xml
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\bin\Debug\IBM.Data.DB2.dll
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT-31-A Project.vbprojResolveAssemblyReference.cache
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.l.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.Form1.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.Admin.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.EmployeeAddEditModal.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.InventoryAddEditModal.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.Menu.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.OrderAddEditModal.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.prodModal.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.SuppAdd.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.SupplierOrderAddEditModal.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.SupplyOrder.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.Form3.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.posArea.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.Resources.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.SupplierArea.resources
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT-31-A Project.vbproj.GenerateResource.Cache
