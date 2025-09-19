@@ -24,7 +24,7 @@ Partial Class posArea
     Private Sub InitializeComponent()
         Me.Cust_Name = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.DataGridView5 = New System.Windows.Forms.DataGridView()
+        Me.dgvOrderGrid = New System.Windows.Forms.DataGridView()
         Me.DeleteOrdersBtn = New System.Windows.Forms.Button()
         Me.EditOrdersBtn = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -52,11 +52,11 @@ Partial Class posArea
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Button8 = New System.Windows.Forms.Button()
+        Me.btnOpenProdList = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
         Me.Button11 = New System.Windows.Forms.Button()
-        CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvOrderGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,13 +84,13 @@ Partial Class posArea
         Me.Button1.Text = "For Delivery"
         Me.Button1.UseVisualStyleBackColor = False
         '
-        'DataGridView5
+        'dgvOrderGrid
         '
-        Me.DataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView5.Location = New System.Drawing.Point(498, 175)
-        Me.DataGridView5.Name = "DataGridView5"
-        Me.DataGridView5.Size = New System.Drawing.Size(245, 165)
-        Me.DataGridView5.TabIndex = 51
+        Me.dgvOrderGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvOrderGrid.Location = New System.Drawing.Point(498, 175)
+        Me.dgvOrderGrid.Name = "dgvOrderGrid"
+        Me.dgvOrderGrid.Size = New System.Drawing.Size(245, 165)
+        Me.dgvOrderGrid.TabIndex = 51
         '
         'DeleteOrdersBtn
         '
@@ -383,14 +383,14 @@ Partial Class posArea
         Me.PictureBox1.TabIndex = 8
         Me.PictureBox1.TabStop = False
         '
-        'Button8
+        'btnOpenProdList
         '
-        Me.Button8.Location = New System.Drawing.Point(225, 189)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(95, 55)
-        Me.Button8.TabIndex = 78
-        Me.Button8.Text = "COFFEE"
-        Me.Button8.UseVisualStyleBackColor = True
+        Me.btnOpenProdList.Location = New System.Drawing.Point(225, 189)
+        Me.btnOpenProdList.Name = "btnOpenProdList"
+        Me.btnOpenProdList.Size = New System.Drawing.Size(95, 55)
+        Me.btnOpenProdList.TabIndex = 78
+        Me.btnOpenProdList.Text = "COFFEE"
+        Me.btnOpenProdList.UseVisualStyleBackColor = True
         '
         'Button9
         '
@@ -427,7 +427,7 @@ Partial Class posArea
         Me.Controls.Add(Me.Button11)
         Me.Controls.Add(Me.Button10)
         Me.Controls.Add(Me.Button9)
-        Me.Controls.Add(Me.Button8)
+        Me.Controls.Add(Me.btnOpenProdList)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Label14)
@@ -449,7 +449,7 @@ Partial Class posArea
         Me.Controls.Add(Me.DeleteOrdersBtn)
         Me.Controls.Add(Me.EditOrdersBtn)
         Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.DataGridView5)
+        Me.Controls.Add(Me.dgvOrderGrid)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Cust_Name)
         Me.Controls.Add(Me.PictureBox2)
@@ -459,7 +459,7 @@ Partial Class posArea
         Me.Controls.Add(Me.ShapeContainer1)
         Me.Name = "posArea"
         Me.Text = "POS"
-        CType(Me.DataGridView5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvOrderGrid, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
@@ -474,7 +474,7 @@ Partial Class posArea
     Friend WithEvents PictureBox5 As System.Windows.Forms.PictureBox
     Friend WithEvents Cust_Name As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents DataGridView5 As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvOrderGrid As System.Windows.Forms.DataGridView
     Friend WithEvents DeleteOrdersBtn As System.Windows.Forms.Button
     Friend WithEvents EditOrdersBtn As System.Windows.Forms.Button
     Friend WithEvents Label12 As System.Windows.Forms.Label
@@ -498,7 +498,7 @@ Partial Class posArea
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button8 As System.Windows.Forms.Button
+    Friend WithEvents btnOpenProdList As System.Windows.Forms.Button
     Friend WithEvents Button9 As System.Windows.Forms.Button
     Friend WithEvents Button10 As System.Windows.Forms.Button
     Friend WithEvents Button11 As System.Windows.Forms.Button

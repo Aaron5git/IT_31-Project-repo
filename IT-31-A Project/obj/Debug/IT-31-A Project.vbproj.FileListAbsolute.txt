@@ -42,3 +42,4 @@ C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_3
 C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.SupplierArea.resources
 C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT-31-A Project.vbproj.GenerateResource.Cache
 C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.posArea.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.prodModal.resources
