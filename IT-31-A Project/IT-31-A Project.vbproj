@@ -94,10 +94,28 @@
     <Compile Include="Default.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EmployeeAddEditModal.Designer.vb">
+      <DependentUpon>EmployeeAddEditModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeAddEditModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InventoryAddEditModal.Designer.vb">
+      <DependentUpon>InventoryAddEditModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryAddEditModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Menu.Designer.vb">
       <DependentUpon>Menu.vb</DependentUpon>
     </Compile>
     <Compile Include="Menu.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderAddEditModal.Designer.vb">
+      <DependentUpon>OrderAddEditModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OrderAddEditModal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="prodModal.Designer.vb">
@@ -106,10 +124,22 @@
     <Compile Include="prodModal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ProductAddEditModal.Designer.vb">
+      <DependentUpon>ProductAddEditModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ProductAddEditModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SuppAdd.Designer.vb">
       <DependentUpon>SuppAdd.vb</DependentUpon>
     </Compile>
     <Compile Include="SuppAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SupplierOrderAddEditModal.Designer.vb">
+      <DependentUpon>SupplierOrderAddEditModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierOrderAddEditModal.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SuppOrder.Designer.vb">
@@ -162,14 +192,29 @@
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeAddEditModal.resx">
+      <DependentUpon>EmployeeAddEditModal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InventoryAddEditModal.resx">
+      <DependentUpon>InventoryAddEditModal.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderAddEditModal.resx">
+      <DependentUpon>OrderAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="prodModal.resx">
       <DependentUpon>prodModal.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductAddEditModal.resx">
+      <DependentUpon>ProductAddEditModal.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SuppAdd.resx">
       <DependentUpon>SuppAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierOrderAddEditModal.resx">
+      <DependentUpon>SupplierOrderAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SuppOrder.resx">
       <DependentUpon>SuppOrder.vb</DependentUpon>
