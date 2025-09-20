@@ -23,12 +23,15 @@ Public Class InventoryAddEditModal
             End If
 
             ' --- Check if record exists ---
-            Dim checkCmd As New DB2Command("SELECT COUNT(*) FROM INVENTORY WHERE INVID = @invId", dbConn)
-            checkCmd.Parameters.Add("@invId", DB2Type.VarChar).Value = invId
+            Dim checkCmd As DB2Command = New DB2Command("call db2admin.gennumId('db2admin.inventory', 'invID', ?)", dbConn)
+            Dim param1 As DB2Parameter = checkCmd.Parameters.Add("@output", DB2Type.Integer)
+            param1.Direction = ParameterDirection.Output
+
             Dim exists As Integer = CInt(checkCmd.ExecuteScalar())
 
             If exists > 0 Then
                 ' --- UPDATE via stored procedure ---
+                invId = checkCmd.Parameters("@output").Value
                 Dim values As String = "INVNAME='" & invName & "', CURRENTSTOCK='" & currentStock & "', " & "MINSTOCKLEVEL='" & minStockLevel & "', LASTUPDATED='" & lastUpdated & "', " & "SUPPLIED_FROM='" & suppliedFrom & "'"
                 Dim condition As String = "INVID='" & invId & "'"
 
@@ -41,6 +44,7 @@ Public Class InventoryAddEditModal
                 MessageBox.Show("Record updated successfully.")
 
             Else
+                invId = checkCmd.Parameters("@output").Value
                 ' --- INSERT via stored procedure ---
                 Dim values As String = "('" & invId & "', '" & invName & "', '" & currentStock & "', '" & minStockLevel & "', '" & lastUpdated & "', '" & suppliedFrom & "')"
 

@@ -206,4 +206,10 @@ Public Class posArea
             MessageBox.Show(ex.Message)
         End Try
     End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Dim historyOrder As PosHistory = New PosHistory()
+        historyOrder.Show()
+        Me.Hide()
+    End Sub
 End Class

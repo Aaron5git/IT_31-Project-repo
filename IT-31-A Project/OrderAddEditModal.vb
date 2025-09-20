@@ -24,7 +24,7 @@ Public Class OrderAddEditModal
             End If
 
             ' --- Check if record exists ---
-            Dim checkCmd As New DB2Command("SELECT COUNT(*) FROM ""ORDER"" WHERE ORDERID = @orderId", dbConn)
+            Dim checkCmd As DB2Command = New DB2Command("SELECT COUNT(*) FROM ""ORDER"" WHERE ORDERID ", dbConn)
             checkCmd.Parameters.Add("@orderId", DB2Type.VarChar).Value = orderId
             Dim exists As Integer = CInt(checkCmd.ExecuteScalar())
 

@@ -8,20 +8,25 @@ Public Class PosHistory
         dbconn.Open()
         Me.Width = 767
         With Me.dgvOrdersView
-            .ColumnCount = 5
+            .ColumnCount = 4
             .Columns(0).Name = "ID"
             .Columns(1).Name = "Quantity"
-            .Columns(2).Name = "Purchased Product ID"
-            .Columns(3).Name = "Amount Total"
-            .Columns(4).Name = "Customer ID"
+            .Columns(2).Name = "Amount Total"
+            .Columns(3).Name = "Purchased Product ID"
         End With
         dgvOrdersView.Rows.Clear()
         dbComm = dbconn.CreateCommand
         dbComm = New DB2Command("select * from table (searchOrderTab()) as t", dbconn)
         dataReader = dbComm.ExecuteReader
         While dataReader.Read
-            row = New String() {dataReader.GetString(0), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4), "" + If(dataReader.GetValues(5) Is DBNull.Value, String.Empty, dataReader.GetString(5))}
+            row = New String() {dataReader.GetString(0), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4)}
             dgvOrdersView.Rows.Add(row)
         End While
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim posOrders As posArea = New posArea()
+        posOrders.Show()
+        Me.Hide()
     End Sub
 End Class
