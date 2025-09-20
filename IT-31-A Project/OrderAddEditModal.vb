@@ -8,10 +8,8 @@ Public Class OrderAddEditModal
         dbConn.Open()
     End Sub
 
-    ' Save button: insert new employee or update existing one
+    ' Save button: insert new order or update existing one
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
-        Dim sqlComm As DB2Command
-
         Try
             Dim orderId As String = orderidtext.Text.Trim()
             Dim orderDate As String = orderdatetext.Text.Trim()
@@ -20,35 +18,48 @@ Public Class OrderAddEditModal
             Dim prodsPurch As String = prodspurchtext.Text.Trim()
             Dim custId As String = custidtext.Text.Trim()
 
-
             If orderId = "" Then
                 MessageBox.Show("ORDERID is required.")
                 Exit Sub
             End If
 
-            ' First check if employee exists
-            sqlComm = New DB2Command("SELECT COUNT(*) FROM ORDER WHERE ORDERID = '" & orderId & "'", dbConn)
-            Dim exists As Integer = CInt(sqlComm.ExecuteScalar())
-
+            ' --- Check if record exists ---
+            Dim checkCmd As New DB2Command("SELECT COUNT(*) FROM ""ORDER"" WHERE ORDERID = @orderId", dbConn)
+            checkCmd.Parameters.Add("@orderId", DB2Type.VarChar).Value = orderId
+            Dim exists As Integer = CInt(checkCmd.ExecuteScalar())
 
             If exists > 0 Then
-                ' Update
-                sqlComm = New DB2Command("UPDATE ORDER SET ORDERDATE = '" & orderDate & "', ORDERQTY = '" & orderQty & "', AMOUNTPAID = '" & amountPaid & "', PRODSPURCH = '" & prodsPurch & "', CUSTID = '" & custId & "' WHERE ORDERID = '" & orderId & "'", dbConn)
-                Dim rowsUpdated As Integer = sqlComm.ExecuteNonQuery()
-                MessageBox.Show(rowsUpdated.ToString() & " record(s) updated successfully.")
+                ' --- UPDATE via stored procedure ---
+                Dim values As String = "ORDERDATE='" & orderDate & "', ORDERQTY='" & orderQty & "', " & "AMOUNTPAID='" & amountPaid & "', PRODSPURCH='" & prodsPurch & "', " & "CUSTID='" & custId & "'"
+                Dim condition As String = "ORDERID='" & orderId & "'"
+
+                Dim updateCmd As New DB2Command("CALL UPDATE_GENERAL(?, ?, ?)", dbConn)
+                updateCmd.Parameters.Add("@table_name", DB2Type.VarChar).Value = "ORDER"
+                updateCmd.Parameters.Add("@values", DB2Type.VarChar).Value = values
+                updateCmd.Parameters.Add("@condition", DB2Type.VarChar).Value = condition
+
+                updateCmd.ExecuteNonQuery()
+                MessageBox.Show("Order updated successfully.")
+
             Else
-                ' Insert
-                sqlComm = New DB2Command("INSERT INTO ORDER (ORDERID, ORDERDATE, ORDERQTY, AMOUNTPAID, PRODSPURCH, CUSTID) VALUES ('" & orderId & "', '" & orderDate & "', '" & orderQty & "', '" & amountPaid & "', '" & prodsPurch & "', '" & custId & "')", dbConn)
-                Dim rowsInserted As Integer = sqlComm.ExecuteNonQuery()
-                MessageBox.Show(rowsInserted.ToString() & " record(s) inserted successfully.")
+                ' --- INSERT via stored procedure ---
+                Dim values As String = "('" & orderId & "', '" & orderDate & "', '" & orderQty & "', '" & amountPaid & "', '" & prodsPurch & "', '" & custId & "')"
+
+                Dim insertCmd As New DB2Command("CALL INSERT_GENERAL(?, ?)", dbConn)
+                insertCmd.Parameters.Add("@table_name", DB2Type.VarChar).Value = "ORDER"
+                insertCmd.Parameters.Add("@values", DB2Type.VarChar).Value = values
+
+                insertCmd.ExecuteNonQuery()
+                MessageBox.Show("Order inserted successfully.")
             End If
 
             Me.Hide()
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show("Error saving order: " & ex.Message)
         End Try
     End Sub
+
 
     ' Close button
     Private Sub CloseBtn_Click(sender As Object, e As EventArgs) Handles CloseBtn.Click

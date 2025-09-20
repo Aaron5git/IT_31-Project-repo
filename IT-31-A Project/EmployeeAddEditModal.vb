@@ -7,45 +7,47 @@ Public Class EmployeeAddEditModal
         dbConn = New DB2Connection("server=localhost;database=cafeproj;uid=db2admin;password=db2admin;")
         dbConn.Open()
     End Sub
-
-    ' Save button: insert new employee or update existing one
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
-        Dim sqlComm As DB2Command
-
         Try
-            Dim empId As String = empidtext.Text.Trim()
+            Dim empID As String = empidtext.Text.Trim()
             Dim empName As String = empnametext.Text.Trim()
-            Dim depId As String = depidtext.Text.Trim()
             Dim empType As String = emptypetext.Text.Trim()
+            Dim depID As String = depidtext.Text.Trim()
 
-            If empId = "" Then
-                MessageBox.Show("EMPID is required.")
-                Exit Sub
-            End If
+            ' 1. Check if record already exists
+            Dim checkCmd As New DB2Command("SELECT COUNT(*) FROM EMPLOYEE WHERE EMPID = @empID", dbConn)
+            checkCmd.Parameters.Add("@empID", DB2Type.Integer).Value = Convert.ToInt32(empID)
+            Dim exists As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
 
-            ' First check if employee exists
-            sqlComm = New DB2Command("SELECT COUNT(*) FROM EMPLOYEE WHERE EMPID = '" & empId & "'", dbConn)
-            Dim exists As Integer = CInt(sqlComm.ExecuteScalar())
+            Dim cmd As DB2Command
 
+            If exists = 0 Then
+                ' INSERT
+                Dim values As String = "('" & empID & "', '" & empName & "', '" & depID & "', '" & empType & "')"
+                cmd = New DB2Command("CALL INSERT_GENERAL(?, ?)", dbConn)
+                cmd.Parameters.Add("@table_name", DB2Type.VarChar).Value = "Employee"
+                cmd.Parameters.Add("@values", DB2Type.VarChar).Value = values
 
-            If exists > 0 Then
-                ' Update
-                sqlComm = New DB2Command("UPDATE EMPLOYEE SET EMPNAME = '" & empName & "', DEPID = '" & depId & "', EMPTYPE = '" & empType & "' WHERE EMPID = '" & empId & "'", dbConn)
-                Dim rowsUpdated As Integer = sqlComm.ExecuteNonQuery()
-                MessageBox.Show(rowsUpdated.ToString() & " record(s) updated successfully.")
+                cmd.ExecuteNonQuery()
+                MessageBox.Show("Record inserted successfully.")
             Else
-                ' Insert
-                sqlComm = New DB2Command("INSERT INTO EMPLOYEE (EMPID, EMPNAME, DEPID, EMPTYPE) VALUES ('" & empId & "', '" & empName & "', '" & depId & "', '" & empType & "')", dbConn)
-                Dim rowsInserted As Integer = sqlComm.ExecuteNonQuery()
-                MessageBox.Show(rowsInserted.ToString() & " record(s) inserted successfully.")
-            End If
+                ' UPDATE
+                Dim setValues As String = "EMPNAME='" & empName & "', DEPID='" & depID & "', EMPTYPE='" & empType & "'"
+                Dim condition As String = "EMPID=" & empID
+                cmd = New DB2Command("CALL UPDATE_GENERAL(?, ?, ?)", dbConn)
+                cmd.Parameters.Add("@table_name", DB2Type.VarChar).Value = "Employee"
+                cmd.Parameters.Add("@values", DB2Type.VarChar).Value = setValues
+                cmd.Parameters.Add("@condition", DB2Type.VarChar).Value = condition
 
-            Me.Hide()
+                cmd.ExecuteNonQuery()
+                MessageBox.Show("Record updated successfully.")
+            End If
 
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show("Error saving data: " & ex.Message)
         End Try
     End Sub
+
 
     ' Close button
     Private Sub CloseBtn_Click(sender As Object, e As EventArgs) Handles CloseBtn.Click
