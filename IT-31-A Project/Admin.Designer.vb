@@ -38,6 +38,7 @@ Partial Class Admin
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ProductBtn = New System.Windows.Forms.Button()
         CType(Me.DataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -164,7 +165,7 @@ Partial Class Admin
         Me.Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Label3.Font = New System.Drawing.Font("Palatino Linotype", 12.75!, System.Drawing.FontStyle.Bold)
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(88, 412)
+        Me.Label3.Location = New System.Drawing.Point(87, 426)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(84, 29)
@@ -178,7 +179,7 @@ Partial Class Admin
         Me.ReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.ReturnBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!)
         Me.ReturnBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.ReturnBtn.Location = New System.Drawing.Point(93, 443)
+        Me.ReturnBtn.Location = New System.Drawing.Point(92, 457)
         Me.ReturnBtn.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.ReturnBtn.Name = "ReturnBtn"
         Me.ReturnBtn.Size = New System.Drawing.Size(75, 60)
@@ -231,11 +232,24 @@ Partial Class Admin
         Me.PictureBox1.TabIndex = 9
         Me.PictureBox1.TabStop = False
         '
+        'ProductBtn
+        '
+        Me.ProductBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ProductBtn.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.ProductBtn.Location = New System.Drawing.Point(1, 370)
+        Me.ProductBtn.Margin = New System.Windows.Forms.Padding(4)
+        Me.ProductBtn.Name = "ProductBtn"
+        Me.ProductBtn.Size = New System.Drawing.Size(251, 38)
+        Me.ProductBtn.TabIndex = 78
+        Me.ProductBtn.Text = "Products"
+        Me.ProductBtn.UseVisualStyleBackColor = True
+        '
         'Admin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(904, 548)
+        Me.Controls.Add(Me.ProductBtn)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.ReturnBtn)
         Me.Controls.Add(Me.Label2)
@@ -280,4 +294,5 @@ Partial Class Admin
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents ReturnBtn As System.Windows.Forms.Button
+    Friend WithEvents ProductBtn As System.Windows.Forms.Button
 End Class

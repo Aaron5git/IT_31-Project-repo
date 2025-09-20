@@ -54,6 +54,12 @@ Public Class Admin
         LoadData(sql)
     End Sub
 
+    ' Product button click
+    Private Sub ProductBtn_Click(sender As Object, e As EventArgs) Handles ProductBtn.Click
+        Dim sql As String = "SELECT prodid, prodname, prodtype, prodprice, prodstatus FROM Product"
+        LoadData(sql)
+    End Sub
+
     ' Enable Delete button only when a row with actual data is selected
     Private Sub DataGrid_SelectionChanged(sender As Object, e As EventArgs) Handles DataGrid.SelectionChanged
         DeleteBtn.Enabled = False
@@ -103,6 +109,11 @@ Public Class Admin
                     Dim suppOrderID As String = DataGrid.SelectedRows(0).Cells("supporderid").Value.ToString()
                     condition = "supporderid = " & suppOrderID
 
+                ElseIf DataGrid.Columns.Contains("productid") Then
+                    currentTable = "Product"
+                    Dim prodID As String = DataGrid.SelectedRows(0).Cells("productid").Value.ToString()
+                    condition = "product = " & prodID
+
                 Else
                     MessageBox.Show("Unknown table or unsupported delete operation.")
                     Exit Sub
@@ -126,6 +137,8 @@ Public Class Admin
                         OrdersBtn_Click(Nothing, Nothing)
                     Case "SuppOrder"
                         SuppOrdBtn_Click(Nothing, Nothing)
+                    Case "Product"
+                        ProductBtn_Click(Nothing, Nothing)
                 End Select
 
             Catch ex As Exception
@@ -167,12 +180,63 @@ Public Class Admin
                 modal.ShowDialog()
                 SuppOrdBtn_Click(Nothing, Nothing)
 
+            ElseIf DataGrid.Columns.Contains("PRODID") Then
+                ' Product Order modal
+                Dim modal As New SupplierOrderAddEditModal()
+                modal.ShowDialog()
+                ProductBtn_Click(Nothing, Nothing)
+
             Else
                 MessageBox.Show("Please select a valid table view before adding or editing.")
             End If
 
         Catch ex As Exception
             MessageBox.Show("Error opening modal: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Search_bar_TextChanged(sender As Object, e As EventArgs) Handles Search_bar.TextChanged
+        Try
+            Dim searchText As String = Search_bar.Text.Trim()
+            Dim cmd As DB2Command
+            Dim adapter As DB2DataAdapter
+            Dim table As New DataTable()
+
+            ' Inventory search
+            If DataGrid.Columns.Contains("INVID") Then
+                cmd = New DB2Command("SELECT * FROM TABLE(INVSEARCHTAB(?)) AS INV", conn)
+                cmd.Parameters.Add("@input", DB2Type.VarChar).Value = searchText
+
+                ' Employee search
+            ElseIf DataGrid.Columns.Contains("EMPID") Then
+                cmd = New DB2Command("SELECT * FROM TABLE(EMPSEARCHTAB(?)) AS EMP", conn)
+                cmd.Parameters.Add("@input", DB2Type.VarChar).Value = searchText
+
+                ' Product search
+            ElseIf DataGrid.Columns.Contains("PRODID") Then
+                cmd = New DB2Command("SELECT * FROM TABLE(PRODSEARCHTAB(?)) AS PROD", conn)
+                cmd.Parameters.Add("@condition", DB2Type.VarChar).Value = searchText
+
+                ' Order search
+            ElseIf DataGrid.Columns.Contains("PRODID") Then
+                cmd = New DB2Command("SELECT * FROM TABLE(PRODSEARCHTAB(?)) AS PROD", conn)
+                cmd.Parameters.Add("@condition", DB2Type.VarChar).Value = searchText
+
+                'ADD THE OTHER SEARCH FUNCTIONS HERE FOR ORDERS AND SUPPLIERS
+
+            Else
+                ' For other tables, no search implemented yet
+                Exit Sub
+            End If
+
+            adapter = New DB2DataAdapter(cmd)
+            adapter.Fill(table)
+            DataGrid.DataSource = table
+            DataGrid.ClearSelection()
+            DeleteBtn.Enabled = False
+
+        Catch ex As Exception
+            MessageBox.Show("Error during search: " & ex.Message)
         End Try
     End Sub
 

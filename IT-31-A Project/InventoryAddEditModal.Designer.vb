@@ -33,9 +33,9 @@ Partial Class InventoryAddEditModal
         Me.CloseBtn = New System.Windows.Forms.Button()
         Me.minstockleveltext = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.suppliedfromtext = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.lastupdateddata = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
@@ -147,16 +147,6 @@ Partial Class InventoryAddEditModal
         Me.Label1.TabIndex = 43
         Me.Label1.Text = "MINSTOCKLEVEL :"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.Label2.Location = New System.Drawing.Point(68, 272)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(146, 23)
-        Me.Label2.TabIndex = 45
-        Me.Label2.Text = "LASTUPDATED :"
-        '
         'suppliedfromtext
         '
         Me.suppliedfromtext.Location = New System.Drawing.Point(232, 311)
@@ -174,6 +164,16 @@ Partial Class InventoryAddEditModal
         Me.Label3.Size = New System.Drawing.Size(162, 23)
         Me.Label3.TabIndex = 47
         Me.Label3.Text = "SUPPLIED_FROM :"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Label2.Location = New System.Drawing.Point(68, 272)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(146, 23)
+        Me.Label2.TabIndex = 45
+        Me.Label2.Text = "LASTUPDATED :"
         '
         'lastupdateddata
         '
@@ -219,8 +219,8 @@ Partial Class InventoryAddEditModal
     Friend WithEvents CloseBtn As System.Windows.Forms.Button
     Friend WithEvents minstockleveltext As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents suppliedfromtext As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents lastupdateddata As System.Windows.Forms.DateTimePicker
 End Class

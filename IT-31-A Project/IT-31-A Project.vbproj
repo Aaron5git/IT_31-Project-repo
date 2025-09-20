@@ -124,6 +124,12 @@
     <Compile Include="prodModal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ProductAddEditModal.Designer.vb">
+      <DependentUpon>ProductAddEditModal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ProductAddEditModal.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SuppAdd.Designer.vb">
       <DependentUpon>SuppAdd.vb</DependentUpon>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="prodModal.resx">
       <DependentUpon>prodModal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductAddEditModal.resx">
+      <DependentUpon>ProductAddEditModal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SuppAdd.resx">
       <DependentUpon>SuppAdd.vb</DependentUpon>

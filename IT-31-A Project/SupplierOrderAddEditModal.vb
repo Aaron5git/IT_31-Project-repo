@@ -3,7 +3,7 @@
 Public Class SupplierOrderAddEditModal
     Dim dbConn As Common.DbConnection
 
-    Private Sub EmployeeAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub SupplierAddEditModal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dbConn = New DB2Connection("server=localhost;database=cafeproj;uid=db2admin;password=db2admin;")
         dbConn.Open()
     End Sub

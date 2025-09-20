@@ -68,3 +68,4 @@ C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_
 C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.Resources.resources
 C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.SupplierArea.resources
 C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT-31-A Project.vbproj.GenerateResource.Cache
+C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.ProductAddEditModal.resources
