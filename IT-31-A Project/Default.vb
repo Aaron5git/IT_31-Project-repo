@@ -1,5 +1,5 @@
 ﻿Imports IBM.Data.DB2
-Public Class l
+Public Class Form4
     Dim dbConn As Common.DbConnection
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
