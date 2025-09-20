@@ -97,22 +97,22 @@ Public Class Admin
                 ElseIf DataGrid.Columns.Contains("EmpID") Then
                     currentTable = "Employee"
                     Dim empID As String = DataGrid.SelectedRows(0).Cells("EmpID").Value.ToString()
-                    condition = "EmpID = " & empID
+                    condition = "EmpID = '" & empID & "'"
 
                 ElseIf DataGrid.Columns.Contains("orderID") Then
                     currentTable = "Order"
                     Dim orderID As String = DataGrid.SelectedRows(0).Cells("orderID").Value.ToString()
-                    condition = "orderID = " & orderID
+                    condition = "orderID = '" & orderID & "'"
 
                 ElseIf DataGrid.Columns.Contains("supporderid") Then
                     currentTable = "SuppOrder"
                     Dim suppOrderID As String = DataGrid.SelectedRows(0).Cells("supporderid").Value.ToString()
-                    condition = "supporderid = " & suppOrderID
+                    condition = "supporderid = '" & suppOrderID & "'"
 
-                ElseIf DataGrid.Columns.Contains("productid") Then
+                ElseIf DataGrid.Columns.Contains("prodid") Then
                     currentTable = "Product"
-                    Dim prodID As String = DataGrid.SelectedRows(0).Cells("productid").Value.ToString()
-                    condition = "product = " & prodID
+                    Dim prodID As String = DataGrid.SelectedRows(0).Cells("prodid").Value.ToString()
+                    condition = "prodid = '" & prodID & "'"
 
                 Else
                     MessageBox.Show("Unknown table or unsupported delete operation.")
@@ -182,7 +182,7 @@ Public Class Admin
 
             ElseIf DataGrid.Columns.Contains("PRODID") Then
                 ' Product Order modal
-                Dim modal As New SupplierOrderAddEditModal()
+                Dim modal As New ProductAddEditModal()
                 modal.ShowDialog()
                 ProductBtn_Click(Nothing, Nothing)
 
@@ -198,42 +198,42 @@ Public Class Admin
     Private Sub Search_bar_TextChanged(sender As Object, e As EventArgs) Handles Search_bar.TextChanged
         Try
             Dim searchText As String = Search_bar.Text.Trim()
-            Dim cmd As DB2Command
-            Dim adapter As DB2DataAdapter
-            Dim table As New DataTable()
-
-            ' Inventory search
-            If DataGrid.Columns.Contains("INVID") Then
-                cmd = New DB2Command("SELECT * FROM TABLE(INVSEARCHTAB(?)) AS INV", conn)
-                cmd.Parameters.Add("@input", DB2Type.VarChar).Value = searchText
-
-                ' Employee search
-            ElseIf DataGrid.Columns.Contains("EMPID") Then
-                cmd = New DB2Command("SELECT * FROM TABLE(EMPSEARCHTAB(?)) AS EMP", conn)
-                cmd.Parameters.Add("@input", DB2Type.VarChar).Value = searchText
-
-                ' Product search
-            ElseIf DataGrid.Columns.Contains("PRODID") Then
-                cmd = New DB2Command("SELECT * FROM TABLE(PRODSEARCHTAB(?)) AS PROD", conn)
-                cmd.Parameters.Add("@condition", DB2Type.VarChar).Value = searchText
-
-                ' Order search
-            ElseIf DataGrid.Columns.Contains("PRODID") Then
-                cmd = New DB2Command("SELECT * FROM TABLE(PRODSEARCHTAB(?)) AS PROD", conn)
-                cmd.Parameters.Add("@condition", DB2Type.VarChar).Value = searchText
-
-                'ADD THE OTHER SEARCH FUNCTIONS HERE FOR ORDERS AND SUPPLIERS
-
-            Else
-                ' For other tables, no search implemented yet
+            If searchText = "" Then
+                DataGrid.DataSource = Nothing
                 Exit Sub
             End If
 
-            adapter = New DB2DataAdapter(cmd)
-            adapter.Fill(table)
-            DataGrid.DataSource = table
-            DataGrid.ClearSelection()
-            DeleteBtn.Enabled = False
+            If conn.State <> ConnectionState.Open Then conn.Open()
+
+            Dim cmd As DB2Command = Nothing
+            Dim table As New DataTable()
+
+            ' Detect which table to search based on DataGrid columns
+            If DataGrid.Columns.Contains("INVID") Then
+                cmd = New DB2Command("SELECT * FROM TABLE(INVSEARCHTAB(?)) AS INV", conn)
+
+            ElseIf DataGrid.Columns.Contains("EMPID") Then
+                cmd = New DB2Command("SELECT * FROM TABLE(EMPSEARCHTAB(?)) AS EMP", conn)
+
+            ElseIf DataGrid.Columns.Contains("PRODID") Then
+                cmd = New DB2Command("SELECT * FROM TABLE(PRODSEARCHTAB(?)) AS PROD", conn)
+
+            ElseIf DataGrid.Columns.Contains("ORDERID") Then
+                cmd = New DB2Command("SELECT * FROM TABLE(ORDERSEARCHTAB(?)) AS ORD", conn)
+
+            ElseIf DataGrid.Columns.Contains("SUPPORDERID") Then
+                cmd = New DB2Command("SELECT * FROM TABLE(SUPPORDSEARCHTAB(?)) AS SUPPORD", conn)
+            End If
+
+            If cmd IsNot Nothing Then
+                cmd.Parameters.Add(New DB2Parameter("", DB2Type.VarChar)).Value = searchText
+
+                Dim adapter As New DB2DataAdapter(cmd)
+                adapter.Fill(table)
+                DataGrid.DataSource = table
+                DataGrid.ClearSelection()
+                DeleteBtn.Enabled = False
+            End If
 
         Catch ex As Exception
             MessageBox.Show("Error during search: " & ex.Message)

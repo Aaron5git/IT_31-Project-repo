@@ -22,12 +22,10 @@ Partial Class ProductAddEditModal
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.prodstatustext = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CloseBtn = New System.Windows.Forms.Button()
         Me.SaveBtn = New System.Windows.Forms.Button()
-        Me.prodtypetext = New System.Windows.Forms.TextBox()
         Me.prodnametext = New System.Windows.Forms.TextBox()
         Me.prodidtext = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -35,19 +33,13 @@ Partial Class ProductAddEditModal
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.prodpricetext = New System.Windows.Forms.TextBox()
-        Me.SuspendLayout()
-        '
-        'prodstatustext
-        '
-        Me.prodstatustext.Location = New System.Drawing.Point(254, 302)
-        Me.prodstatustext.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.prodstatustext.Name = "prodstatustext"
-        Me.prodstatustext.Size = New System.Drawing.Size(152, 22)
-        Me.prodstatustext.TabIndex = 85
+        Me.prodtypedata = New System.Windows.Forms.ComboBox()
+        Me.prodstatusdata = New System.Windows.Forms.ComboBox()
+        Me.SuspendLayout
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
+        Me.Label2.AutoSize = true
         Me.Label2.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold)
         Me.Label2.Location = New System.Drawing.Point(94, 301)
         Me.Label2.Name = "Label2"
@@ -57,7 +49,7 @@ Partial Class ProductAddEditModal
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
+        Me.Label1.AutoSize = true
         Me.Label1.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold)
         Me.Label1.Location = New System.Drawing.Point(118, 255)
         Me.Label1.Name = "Label1"
@@ -76,7 +68,7 @@ Partial Class ProductAddEditModal
         Me.CloseBtn.Size = New System.Drawing.Size(133, 34)
         Me.CloseBtn.TabIndex = 82
         Me.CloseBtn.Text = "Close"
-        Me.CloseBtn.UseVisualStyleBackColor = False
+        Me.CloseBtn.UseVisualStyleBackColor = false
         '
         'SaveBtn
         '
@@ -89,15 +81,7 @@ Partial Class ProductAddEditModal
         Me.SaveBtn.Size = New System.Drawing.Size(133, 34)
         Me.SaveBtn.TabIndex = 81
         Me.SaveBtn.Text = "Save "
-        Me.SaveBtn.UseVisualStyleBackColor = False
-        '
-        'prodtypetext
-        '
-        Me.prodtypetext.Location = New System.Drawing.Point(254, 212)
-        Me.prodtypetext.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.prodtypetext.Name = "prodtypetext"
-        Me.prodtypetext.Size = New System.Drawing.Size(152, 22)
-        Me.prodtypetext.TabIndex = 80
+        Me.SaveBtn.UseVisualStyleBackColor = false
         '
         'prodnametext
         '
@@ -117,7 +101,7 @@ Partial Class ProductAddEditModal
         '
         'Label8
         '
-        Me.Label8.AutoSize = True
+        Me.Label8.AutoSize = true
         Me.Label8.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold)
         Me.Label8.Location = New System.Drawing.Point(122, 211)
         Me.Label8.Name = "Label8"
@@ -127,7 +111,7 @@ Partial Class ProductAddEditModal
         '
         'Label7
         '
-        Me.Label7.AutoSize = True
+        Me.Label7.AutoSize = true
         Me.Label7.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold)
         Me.Label7.Location = New System.Drawing.Point(114, 159)
         Me.Label7.Name = "Label7"
@@ -137,7 +121,7 @@ Partial Class ProductAddEditModal
         '
         'Label6
         '
-        Me.Label6.AutoSize = True
+        Me.Label6.AutoSize = true
         Me.Label6.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold)
         Me.Label6.Location = New System.Drawing.Point(148, 110)
         Me.Label6.Name = "Label6"
@@ -147,7 +131,7 @@ Partial Class ProductAddEditModal
         '
         'Label4
         '
-        Me.Label4.AutoSize = True
+        Me.Label4.AutoSize = true
         Me.Label4.Font = New System.Drawing.Font("Palatino Linotype", 9.75!, System.Drawing.FontStyle.Bold)
         Me.Label4.Location = New System.Drawing.Point(196, 65)
         Me.Label4.Name = "Label4"
@@ -163,18 +147,36 @@ Partial Class ProductAddEditModal
         Me.prodpricetext.Size = New System.Drawing.Size(152, 22)
         Me.prodpricetext.TabIndex = 86
         '
+        'prodtypedata
+        '
+        Me.prodtypedata.FormattingEnabled = true
+        Me.prodtypedata.Items.AddRange(New Object() {"coffee", "snack", "meal", "drink"})
+        Me.prodtypedata.Location = New System.Drawing.Point(254, 211)
+        Me.prodtypedata.Name = "prodtypedata"
+        Me.prodtypedata.Size = New System.Drawing.Size(152, 24)
+        Me.prodtypedata.TabIndex = 87
+        '
+        'prodstatusdata
+        '
+        Me.prodstatusdata.FormattingEnabled = True
+        Me.prodstatusdata.Items.AddRange(New Object() {"AVAIL", "UNAV"})
+        Me.prodstatusdata.Location = New System.Drawing.Point(254, 300)
+        Me.prodstatusdata.Name = "prodstatusdata"
+        Me.prodstatusdata.Size = New System.Drawing.Size(152, 24)
+        Me.prodstatusdata.TabIndex = 88
+        '
         'ProductAddEditModal
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8!, 16!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(543, 463)
+        Me.Controls.Add(Me.prodstatusdata)
+        Me.Controls.Add(Me.prodtypedata)
         Me.Controls.Add(Me.prodpricetext)
-        Me.Controls.Add(Me.prodstatustext)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.CloseBtn)
         Me.Controls.Add(Me.SaveBtn)
-        Me.Controls.Add(Me.prodtypetext)
         Me.Controls.Add(Me.prodnametext)
         Me.Controls.Add(Me.prodidtext)
         Me.Controls.Add(Me.Label8)
@@ -183,16 +185,14 @@ Partial Class ProductAddEditModal
         Me.Controls.Add(Me.Label4)
         Me.Name = "ProductAddEditModal"
         Me.Text = "ProductAddEditModal"
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
-    Friend WithEvents prodstatustext As System.Windows.Forms.TextBox
+End Sub
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents CloseBtn As System.Windows.Forms.Button
     Friend WithEvents SaveBtn As System.Windows.Forms.Button
-    Friend WithEvents prodtypetext As System.Windows.Forms.TextBox
     Friend WithEvents prodnametext As System.Windows.Forms.TextBox
     Friend WithEvents prodidtext As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
@@ -200,4 +200,6 @@ Partial Class ProductAddEditModal
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents prodpricetext As System.Windows.Forms.TextBox
+    Friend WithEvents prodtypedata As System.Windows.Forms.ComboBox
+    Friend WithEvents prodstatusdata As System.Windows.Forms.ComboBox
 End Class
