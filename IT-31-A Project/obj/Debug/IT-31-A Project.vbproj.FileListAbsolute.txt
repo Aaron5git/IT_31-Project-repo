@@ -72,3 +72,10 @@ C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_
 C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT-31-A Project.vbproj.GenerateResource.Cache
 C:\Users\Admin\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.ProductAddEditModal.resources
 >>>>>>> parent of 4e61bac (Merge branch 'main' of https://github.com/Aaron5git/IT_31-Project-repo)
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.l.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.EmployeeAddEditModal.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.InventoryAddEditModal.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.OrderAddEditModal.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.ProductAddEditModal.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.SupplierOrderAddEditModal.resources
+C:\Users\ACER\Documents\GitHub\IT_31-Project-repo\IT-31-A Project\obj\Debug\IT_31_A_Project.PosHistory.resources

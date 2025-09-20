@@ -2,8 +2,11 @@
 Public Class posArea
     Private dbconn As Common.DbConnection
     Private rowIndex As Integer
+    Private id As Integer = 0
 
     Private Sub posArea_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dbconn = New DB2Connection("server=localhost;database=cafeproj;uid=db2admin;password=db2admin;")
+        dbconn.Open()
         Me.Width = 767
         With Me.dgvOrderGrid
             .ColumnCount = 4
@@ -32,7 +35,6 @@ Public Class posArea
 
     Private Sub DeleteOrdersBtn_Click(sender As Object, e As EventArgs) Handles DeleteOrdersBtn.Click
         Dim quantity As Integer
-        Dim row As String
 
         quantity = quantNum.Text
         quantity -= 1
@@ -49,7 +51,6 @@ Public Class posArea
 
     Private Sub EditOrdersBtn_Click(sender As Object, e As EventArgs) Handles EditOrdersBtn.Click
         Dim quantity As Integer
-        Dim row As String
 
         quantity = quantNum.Text
         quantity += 1
@@ -123,20 +124,21 @@ Public Class posArea
         Dim address As String = Cust_Address.Text
         Dim dbComm As DB2Command
         Dim dbRead As DB2DataReader
-        Dim dataObject As Object = New Object()
         Try
             dbComm = dbconn.CreateCommand()
-            dbComm = New DB2Command("call db2admin.gennumid(?, ?)", dbconn)
+            dbComm = New DB2Command("call db2admin.gennumid(?, ?, ?)", dbconn)
             Dim param1 As DB2Parameter = dbComm.Parameters.Add("@tableName", DB2Type.VarChar)
             param1.Direction = ParameterDirection.Input
             dbComm.Parameters("@tableName").Value = "customer"
             Dim param2 As DB2Parameter = dbComm.Parameters.Add("@colName", DB2Type.VarChar)
             param2.Direction = ParameterDirection.Input
             dbComm.Parameters("@colName").Value = "custID"
+            Dim param3 As DB2Parameter = dbComm.Parameters.Add("@result", DB2Type.Integer)
+            param3.Direction = ParameterDirection.Output
 
-            dbRead = dbComm.ExecuteReader
-            If dbRead.Read Then
-                id = dbRead.GetValue(0) + 10001
+            dbComm.ExecuteNonQuery()
+            If dbComm.Parameters("@result").Value > 0 Then
+                id = dbComm.Parameters("@result").Value + 10001
             Else
                 id = 10000
             End If
@@ -144,11 +146,62 @@ Public Class posArea
             'For creating a new record for Customer
             dbComm = New DB2Command("call db2admin.insert_general(customer, ?)", dbconn)
 
-            Dim param3 As DB2Parameter = dbComm.Parameters.Add("@values", DB2Type.VarChar)
-            param3.Direction = ParameterDirection.Input
+            Dim param4 As DB2Parameter = dbComm.Parameters.Add("@values", DB2Type.VarChar)
+            param4.Direction = ParameterDirection.Input
             dbComm.Parameters("@values").Value = "('" & name & "', " & phoneNum & ", '" & address & "')"
-            dbRead = dbComm.ExecuteReader
+            dbRead = dbComm.ExecuteReader()
             MessageBox.Show("Customer is saved successfully!")
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim dbComm As DB2Command
+        Dim dbRead As DB2DataReader
+        Dim ordID As Integer
+        Dim currentDate As Date = Now
+
+        Try
+            dbComm = dbconn.CreateCommand()
+            dbComm = New DB2Command("call db2admin.gennumid(?, ?, ?)", dbconn)
+            Dim param1 As DB2Parameter = dbComm.Parameters.Add("@tableName", DB2Type.VarChar)
+            param1.Direction = ParameterDirection.Input
+            dbComm.Parameters("@tableName").Value = "order"
+            Dim param2 As DB2Parameter = dbComm.Parameters.Add("@colName", DB2Type.VarChar)
+            param2.Direction = ParameterDirection.Input
+            dbComm.Parameters("@colName").Value = "orderID"
+            Dim param3 As DB2Parameter = dbComm.Parameters.Add("@result", DB2Type.Integer)
+            param3.Direction = ParameterDirection.Output
+
+            dbComm.ExecuteNonQuery()
+            If IsDBNull(dbComm.Parameters("@result").Value) Then
+                ordID = 1
+            Else
+                ordID = dbComm.Parameters("@result").Value + 1
+            End If
+            For Each row As DataGridViewRow In dgvOrderGrid.Rows
+                dbComm = dbconn.CreateCommand()
+                If id > 0 Then
+                    dbComm = New DB2Command("call db2admin.insert_order(?, ?, ?, ?, ?, ?)", dbconn)
+                    Dim idCol As DB2Parameter = dbComm.Parameters.Add("@id", DB2Type.Integer) : idCol.Direction = ParameterDirection.Input : dbComm.Parameters("@id").Value = ordID
+                    Dim dateCol As DB2Parameter = dbComm.Parameters.Add("@date", DB2Type.Date) : dateCol.Direction = ParameterDirection.Input : dbComm.Parameters("@date").Value = currentDate.ToShortDateString
+                    Dim quantCol As DB2Parameter = dbComm.Parameters.Add("@quant", DB2Type.Integer) : quantCol.Direction = ParameterDirection.Input : dbComm.Parameters("@quant").Value = row.Cells(2).Value
+                    Dim amountCol As DB2Parameter = dbComm.Parameters.Add("@amount", DB2Type.Decimal) : amountCol.Direction = ParameterDirection.Input : dbComm.Parameters("@amount").Value = row.Cells(2).Value * row.Cells(3).Value
+                    Dim prodCol As DB2Parameter = dbComm.Parameters.Add("@prodID", DB2Type.Integer) : prodCol.Direction = ParameterDirection.Input : dbComm.Parameters("@prodID").Value = row.Cells(0).Value
+                    Dim custCol As New DB2Parameter("@customerid", DB2Type.Integer) : custCol.Direction = ParameterDirection.Input : dbComm.Parameters("@customerid").Value = id
+                Else
+                    dbComm = New DB2Command("call db2admin.insert_order(?, ?, ?, ?, ?)", dbconn)
+                    Dim idCol As DB2Parameter = dbComm.Parameters.Add("@id", DB2Type.Integer) : idCol.Direction = ParameterDirection.Input : dbComm.Parameters("@id").Value = ordID
+                    Dim dateCol As DB2Parameter = dbComm.Parameters.Add("@date", DB2Type.Date) : dateCol.Direction = ParameterDirection.Input : dbComm.Parameters("@date").Value = currentDate.ToShortDateString
+                    Dim quantCol As DB2Parameter = dbComm.Parameters.Add("@quant", DB2Type.Integer) : quantCol.Direction = ParameterDirection.Input : dbComm.Parameters("@quant").Value = row.Cells(2).Value
+                    Dim amountCol As DB2Parameter = dbComm.Parameters.Add("@amount", DB2Type.Decimal) : amountCol.Direction = ParameterDirection.Input : dbComm.Parameters("@amount").Value = row.Cells(2).Value * row.Cells(3).Value
+                    Dim prodCol As DB2Parameter = dbComm.Parameters.Add("@prodID", DB2Type.Integer) : prodCol.Direction = ParameterDirection.Input : dbComm.Parameters("@prodID").Value = row.Cells(0).Value
+                End If
+                dbRead = dbComm.ExecuteReader
+            Next
+            MessageBox.Show("Order has been saved!")
+            dgvOrderGrid.Rows.Clear()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
