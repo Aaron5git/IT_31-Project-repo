@@ -22,28 +22,13 @@ Public Class prodModal
         loadGridView()
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles searchBox.TextChanged
-        Dim input As String = searchBox.Text
-        loadGridView(input)
-    End Sub
-
     Private Sub loadGridView(Optional ByVal condition As String = "")
         Dim row As String()
         Dim sqlcomm As DB2Command
         Dim sqlReader As DB2DataReader
-
-        dgvProductView.Rows.Clear()
-
         Try
             If (condition = "") Then
                 sqlcomm = New DB2Command("select * from table (db2admin.prodSearchTab('" & prodType & "')) as t", dbConn)
-                sqlReader = sqlcomm.ExecuteReader
-                While sqlReader.Read
-                    row = New String() {sqlReader.GetString(0), sqlReader.GetString(1), sqlReader.GetString(2), sqlReader.GetString(3), sqlReader.GetString(4)}
-                    dgvProductView.Rows.Add(row)
-                End While
-            Else
-                sqlcomm = New DB2Command("select * from table (db2admin.prodSearchTab('" & prodType & "')) as t join table (db2admin.prodSearchTab('" & condition & "')) using (prodID)", dbConn)
                 sqlReader = sqlcomm.ExecuteReader
                 While sqlReader.Read
                     row = New String() {sqlReader.GetString(0), sqlReader.GetString(1), sqlReader.GetString(2), sqlReader.GetString(3), sqlReader.GetString(4)}
@@ -56,7 +41,7 @@ Public Class prodModal
     End Sub
 
     Private Sub dgvProductView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvProductView.CellContentClick
-        posArea.dgvOrderGrid.Rows.Add(dgvProductView.CurrentRow.Cells(1).Value, "1", dgvProductView.CurrentRow.Cells(3).Value, dgvProductView.CurrentRow.Cells(0).Value)
+        posArea.dgvOrderGrid.Rows.Add(dgvProductView.CurrentRow.Cells(0).Value, dgvProductView.CurrentRow.Cells(1).Value, "1", dgvProductView.CurrentRow.Cells(3).Value)
         Me.Hide()
     End Sub
 End Class

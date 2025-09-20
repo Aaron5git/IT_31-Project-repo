@@ -24,7 +24,7 @@ Partial Class prodModal
     Private Sub InitializeComponent()
         Me.dgvProductView = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.searchBox = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.dgvProductView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -46,19 +46,19 @@ Partial Class prodModal
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Search"
         '
-        'searchBox
+        'TextBox1
         '
-        Me.searchBox.Location = New System.Drawing.Point(133, 36)
-        Me.searchBox.Name = "searchBox"
-        Me.searchBox.Size = New System.Drawing.Size(159, 20)
-        Me.searchBox.TabIndex = 2
+        Me.TextBox1.Location = New System.Drawing.Point(133, 36)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(159, 20)
+        Me.TextBox1.TabIndex = 2
         '
         'prodModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(436, 390)
-        Me.Controls.Add(Me.searchBox)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgvProductView)
         Me.Name = "prodModal"
@@ -70,5 +70,5 @@ Partial Class prodModal
     End Sub
     Friend WithEvents dgvProductView As System.Windows.Forms.DataGridView
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents searchBox As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
 End Class

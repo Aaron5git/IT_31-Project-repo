@@ -1,9 +1,5 @@
 ﻿Imports IBM.Data.DB2
 Public Class Admin
-<<<<<<< HEAD
-    Private dbconn As Common.DbConnection
-=======
->>>>>>> 4e61bac3b21ea561e1fad9b2c47aa47f3861a162
 
     'DB2 connection string for localhost
     Dim connString As String = "Server=localhost;Database=cafeproj;UID=db2admin;PWD=db2admin;"
@@ -11,22 +7,12 @@ Public Class Admin
 
     ' Form Load: Open DB2 connection and disable Delete button
     Private Sub Admin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-<<<<<<< HEAD
-        dbconn = New DB2Connection("server=localhost;database=cafeproj;" + "uid=db2admin;password=db2admin;")
-        dbconn.Open()
-
-    End Sub
-
-    Private Sub Load_Emp(Optional ByVal type As String = "")
-
-=======
         Try
             conn.Open()
             DeleteBtn.Enabled = False
         Catch ex As Exception
             MessageBox.Show("Failed to connect to DB2: " & ex.Message)
         End Try
->>>>>>> 4e61bac3b21ea561e1fad9b2c47aa47f3861a162
     End Sub
 
     ' Generic method to load data into DataGrid

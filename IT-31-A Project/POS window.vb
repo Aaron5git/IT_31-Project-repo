@@ -2,18 +2,15 @@
 Public Class posArea
     Private dbconn As Common.DbConnection
     Private rowIndex As Integer
-    Private id As Integer = 0
 
     Private Sub posArea_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dbconn = New DB2Connection("server=localhost;database=cafeproj;" + "uid=db2admin;password=db2admin;")
-        dbconn.Open()
         Me.Width = 767
         With Me.dgvOrderGrid
             .ColumnCount = 4
-            .Columns(0).Name = "Name"
-            .Columns(1).Name = "Quantity"
-            .Columns(2).Name = "Price"
-            .Columns(3).Name = "ID"
+            .Columns(0).Name = "ID"
+            .Columns(1).Name = "Name"
+            .Columns(2).Name = "Quantity"
+            .Columns(3).Name = "Price"
         End With
     End Sub
 
@@ -45,19 +42,20 @@ Public Class posArea
             costArea.Text = "0.0"
         Else
             quantNum.Text = quantity
-            dgvOrderGrid.Rows(rowIndex).Cells(1).Value = quantity
+            dgvOrderGrid.Rows(rowIndex).Cells(2).Value = quantity
             quantityAdder()
         End If
     End Sub
 
     Private Sub EditOrdersBtn_Click(sender As Object, e As EventArgs) Handles EditOrdersBtn.Click
         Dim quantity As Integer
+        Dim row As String
 
         quantity = quantNum.Text
         quantity += 1
         quantNum.Text = quantity
 
-        dgvOrderGrid.Rows(rowIndex).Cells(1).Value = quantity
+        dgvOrderGrid.Rows(rowIndex).Cells(2).Value = quantity
         quantityAdder()
     End Sub
 
@@ -99,7 +97,7 @@ Public Class posArea
 
     Private Sub dgvOrderGrid_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvOrderGrid.CellContentClick
         If dgvOrderGrid.Rows.Count > 0 Then
-            quantNum.Text = dgvOrderGrid.CurrentRow.Cells(1).Value
+            quantNum.Text = dgvOrderGrid.CurrentRow.Cells(2).Value
             rowIndex = dgvOrderGrid.CurrentRow.Index
         End If
     End Sub
@@ -109,7 +107,7 @@ Public Class posArea
         If dgvOrderGrid.Rows.Count > 0 Then
             Try
                 For Each row As DataGridViewRow In dgvOrderGrid.Rows
-                    totalCost = totalCost + (row.Cells(1).Value * row.Cells(2).Value)
+                    totalCost = totalCost + (row.Cells(2).Value * row.Cells(3).Value)
                 Next
             Catch ex As Exception
                 MessageBox.Show(ex.Message)
@@ -119,98 +117,40 @@ Public Class posArea
     End Sub
 
     Private Sub btnSaveCust_Click(sender As Object, e As EventArgs) Handles btnSaveCust.Click
+        Dim id As Integer
         Dim name As String = custName.Text
         Dim phoneNum As String = Cust_PhoneNum.Text
         Dim address As String = Cust_Address.Text
         Dim dbComm As DB2Command
         Dim dbRead As DB2DataReader
+        Dim dataObject As Object = New Object()
         Try
             dbComm = dbconn.CreateCommand()
-            dbComm = New DB2Command("call db2admin.gennumid(?, ?, ?)", dbconn)
+            dbComm = New DB2Command("call db2admin.gennumid(?, ?)", dbconn)
             Dim param1 As DB2Parameter = dbComm.Parameters.Add("@tableName", DB2Type.VarChar)
             param1.Direction = ParameterDirection.Input
             dbComm.Parameters("@tableName").Value = "customer"
             Dim param2 As DB2Parameter = dbComm.Parameters.Add("@colName", DB2Type.VarChar)
             param2.Direction = ParameterDirection.Input
             dbComm.Parameters("@colName").Value = "custID"
-            Dim resultparam As DB2Parameter = dbComm.Parameters.Add("@output", DB2Type.Integer)
-            resultparam.Direction = ParameterDirection.Output
-            dbComm.ExecuteNonQuery()
-            If IsDBNull(dbComm.Parameters("@output").Value) Then
-                id = 10000
+
+            dbRead = dbComm.ExecuteReader
+            If dbRead.Read Then
+                id = dbRead.GetValue(0) + 10001
             Else
-                id = dbComm.Parameters("@output").Value + 10001
+                id = 10000
             End If
-            MessageBox.Show("The value is: " & id)
 
             'For creating a new record for Customer
-            dbComm = New DB2Command("call db2admin.insert_general('customer', ?)", dbconn)
+            dbComm = New DB2Command("call db2admin.insert_general(customer, ?)", dbconn)
 
             Dim param3 As DB2Parameter = dbComm.Parameters.Add("@values", DB2Type.VarChar)
             param3.Direction = ParameterDirection.Input
-            dbComm.Parameters("@values").Value = "(" & id & ", '" & name & "', " & phoneNum & ", '" & address & "')"
+            dbComm.Parameters("@values").Value = "('" & name & "', " & phoneNum & ", '" & address & "')"
             dbRead = dbComm.ExecuteReader
             MessageBox.Show("Customer is saved successfully!")
         Catch ex As Exception
             MessageBox.Show(ex.Message)
-        End Try
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim dbComm As DB2Command
-        Dim dbRead As DB2DataReader
-        Dim orderid As Integer = 0
-        Dim currDate As Date = DateTime.Today
-
-        Try
-            dbComm = dbconn.CreateCommand()
-            dbComm = New DB2Command("call db2admin.gennumid(?, ?, ?)", dbconn)
-            Dim param1 As DB2Parameter = dbComm.Parameters.Add("@tableName", DB2Type.VarChar)
-            param1.Direction = ParameterDirection.Input
-            dbComm.Parameters("@tableName").Value = "order"
-            Dim param2 As DB2Parameter = dbComm.Parameters.Add("@colName", DB2Type.VarChar)
-            param2.Direction = ParameterDirection.Input
-            dbComm.Parameters("@colName").Value = "orderID"
-            Dim resultparam As DB2Parameter = dbComm.Parameters.Add("@output", DB2Type.Integer)
-            resultparam.Direction = ParameterDirection.Output
-            dbComm.ExecuteNonQuery()
-            If IsDBNull(dbComm.Parameters("@output").Value) Then
-                orderid = 1
-            Else
-                orderid = dbComm.Parameters("@output").Value + 1
-            End If
-            Dim param3 As DB2Parameter
-            Dim costProd As Double
-            For Each row As DataGridViewRow In dgvOrderGrid.Rows
-                costProd = row.Cells(2).Value * row.Cells(1).Value
-                MessageBox.Show(costProd)
-                If id > 0 Then
-                    dbComm = New DB2Command("call db2admin.insert_orders('order', ?, ?, ?)", dbconn)
-                    param3 = dbComm.Parameters.Add("@col1", DB2Type.VarChar)
-                    param3.Direction = ParameterDirection.Input
-                    dbComm.Parameters("@col1").Value = "(" & orderid
-                    param3 = dbComm.Parameters.Add("@col2", DB2Type.VarChar)
-                    param3.Direction = ParameterDirection.Input
-                    dbComm.Parameters("@col2").Value = ", " & row.Cells(1).Value & ", " & costProd & ", " & row.Cells(3).Value
-                    param3 = dbComm.Parameters.Add("@col2", DB2Type.VarChar)
-                    param3.Direction = ParameterDirection.Input
-                    dbComm.Parameters("@col3").Value = id & ")"
-                Else
-                    dbComm = New DB2Command("call db2admin.insert_orders('order', ?, ?)", dbconn)
-                    param3 = dbComm.Parameters.Add("@col1", DB2Type.Integer)
-                    param3.Direction = ParameterDirection.Input
-                    dbComm.Parameters("@col1").Value = orderid
-                    param3 = dbComm.Parameters.Add("@col2", DB2Type.VarChar)
-                    param3.Direction = ParameterDirection.Input
-                    dbComm.Parameters("@col2").Value = ", " & row.Cells(1).Value & ", " & costProd & ", " & row.Cells(3).Value & ")"
-                End If
-                dbRead = dbComm.ExecuteReader
-                orderid = orderid + 1
-            Next
-            MessageBox.Show("Orders are saved successfully!")
-            dgvOrderGrid.Rows.Clear()
-        Catch ex As Exception
-            MessageBox.Show("Error: " & ex.Message)
         End Try
     End Sub
 End Class
