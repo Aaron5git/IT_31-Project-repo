@@ -22,7 +22,6 @@ Partial Class SupplierOrderAddEditModal
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.dateofpurchasetext = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CloseBtn = New System.Windows.Forms.Button()
         Me.SaveBtn = New System.Windows.Forms.Button()
@@ -35,15 +34,8 @@ Partial Class SupplierOrderAddEditModal
         Me.Label4 = New System.Windows.Forms.Label()
         Me.amountpaidtext = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.dateofpurchasedata = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
-        '
-        'dateofpurchasetext
-        '
-        Me.dateofpurchasetext.Location = New System.Drawing.Point(244, 264)
-        Me.dateofpurchasetext.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.dateofpurchasetext.Name = "dateofpurchasetext"
-        Me.dateofpurchasetext.Size = New System.Drawing.Size(152, 22)
-        Me.dateofpurchasetext.TabIndex = 70
         '
         'Label1
         '
@@ -163,14 +155,21 @@ Partial Class SupplierOrderAddEditModal
         Me.Label2.TabIndex = 71
         Me.Label2.Text = "AMOUNTPAID  :"
         '
+        'dateofpurchasedata
+        '
+        Me.dateofpurchasedata.Location = New System.Drawing.Point(244, 265)
+        Me.dateofpurchasedata.Name = "dateofpurchasedata"
+        Me.dateofpurchasedata.Size = New System.Drawing.Size(152, 22)
+        Me.dateofpurchasedata.TabIndex = 73
+        '
         'SupplierOrderAddEditModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(528, 485)
+        Me.Controls.Add(Me.dateofpurchasedata)
         Me.Controls.Add(Me.amountpaidtext)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.dateofpurchasetext)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.CloseBtn)
         Me.Controls.Add(Me.SaveBtn)
@@ -187,7 +186,6 @@ Partial Class SupplierOrderAddEditModal
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents dateofpurchasetext As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents CloseBtn As System.Windows.Forms.Button
     Friend WithEvents SaveBtn As System.Windows.Forms.Button
@@ -200,4 +198,5 @@ Partial Class SupplierOrderAddEditModal
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents amountpaidtext As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents dateofpurchasedata As System.Windows.Forms.DateTimePicker
 End Class

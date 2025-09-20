@@ -34,9 +34,9 @@ Partial Class OrderAddEditModal
         Me.CloseBtn = New System.Windows.Forms.Button()
         Me.SaveBtn = New System.Windows.Forms.Button()
         Me.orderqtytext = New System.Windows.Forms.TextBox()
-        Me.orderdatetext = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.orderdatedata = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'orderidtext
@@ -155,14 +155,6 @@ Partial Class OrderAddEditModal
         Me.orderqtytext.Size = New System.Drawing.Size(152, 22)
         Me.orderqtytext.TabIndex = 68
         '
-        'orderdatetext
-        '
-        Me.orderdatetext.Location = New System.Drawing.Point(210, 161)
-        Me.orderdatetext.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.orderdatetext.Name = "orderdatetext"
-        Me.orderdatetext.Size = New System.Drawing.Size(152, 22)
-        Me.orderdatetext.TabIndex = 67
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -183,11 +175,19 @@ Partial Class OrderAddEditModal
         Me.Label7.TabIndex = 65
         Me.Label7.Text = "ORDERDATE :"
         '
-        'OrdersAddEditModal
+        'orderdatedata
+        '
+        Me.orderdatedata.Location = New System.Drawing.Point(210, 162)
+        Me.orderdatedata.Name = "orderdatedata"
+        Me.orderdatedata.Size = New System.Drawing.Size(152, 22)
+        Me.orderdatedata.TabIndex = 77
+        '
+        'OrderAddEditModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(458, 499)
+        Me.Controls.Add(Me.orderdatedata)
         Me.Controls.Add(Me.custidtext)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.prodspurchtext)
@@ -197,13 +197,12 @@ Partial Class OrderAddEditModal
         Me.Controls.Add(Me.CloseBtn)
         Me.Controls.Add(Me.SaveBtn)
         Me.Controls.Add(Me.orderqtytext)
-        Me.Controls.Add(Me.orderdatetext)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.orderidtext)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label4)
-        Me.Name = "OrdersAddEditModal"
+        Me.Name = "OrderAddEditModal"
         Me.Text = "OrdersAddEditModal"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -221,7 +220,7 @@ Partial Class OrderAddEditModal
     Friend WithEvents CloseBtn As System.Windows.Forms.Button
     Friend WithEvents SaveBtn As System.Windows.Forms.Button
     Friend WithEvents orderqtytext As System.Windows.Forms.TextBox
-    Friend WithEvents orderdatetext As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents orderdatedata As System.Windows.Forms.DateTimePicker
 End Class

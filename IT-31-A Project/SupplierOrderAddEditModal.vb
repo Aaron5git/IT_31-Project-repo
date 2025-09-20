@@ -14,7 +14,7 @@ Public Class SupplierOrderAddEditModal
             Dim supporderId As String = supporderidtext.Text.Trim()
             Dim suppId As String = suppidtext.Text.Trim()
             Dim suppQty As String = suppqtytext.Text.Trim()
-            Dim dateOfPurchase As String = dateofpurchasetext.Text.Trim()
+            Dim dateOfPurchase As String = dateofpurchasedata.Value.ToString("yyyy-MM-dd")
             Dim amountPaid As String = amountpaidtext.Text.Trim()
 
             If supporderId = "" Then

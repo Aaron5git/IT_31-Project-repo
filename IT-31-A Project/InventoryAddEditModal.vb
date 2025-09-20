@@ -14,7 +14,7 @@ Public Class InventoryAddEditModal
             Dim invName As String = invnametext.Text.Trim()
             Dim currentStock As String = currentstocktext.Text.Trim()
             Dim minStockLevel As String = minstockleveltext.Text.Trim()
-            Dim lastUpdated As String = lastupdatedtext.Text.Trim()
+            Dim lastUpdated As String = lastupdateddata.Value.ToString("yyyy-MM-dd")
             Dim suppliedFrom As String = suppliedfromtext.Text.Trim()
 
             If invId = "" Then

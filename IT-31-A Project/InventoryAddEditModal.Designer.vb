@@ -33,10 +33,10 @@ Partial Class InventoryAddEditModal
         Me.CloseBtn = New System.Windows.Forms.Button()
         Me.minstockleveltext = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.lastupdatedtext = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.suppliedfromtext = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.lastupdateddata = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'currentstocktext
@@ -147,14 +147,6 @@ Partial Class InventoryAddEditModal
         Me.Label1.TabIndex = 43
         Me.Label1.Text = "MINSTOCKLEVEL :"
         '
-        'lastupdatedtext
-        '
-        Me.lastupdatedtext.Location = New System.Drawing.Point(232, 273)
-        Me.lastupdatedtext.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.lastupdatedtext.Name = "lastupdatedtext"
-        Me.lastupdatedtext.Size = New System.Drawing.Size(152, 22)
-        Me.lastupdatedtext.TabIndex = 46
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -183,14 +175,21 @@ Partial Class InventoryAddEditModal
         Me.Label3.TabIndex = 47
         Me.Label3.Text = "SUPPLIED_FROM :"
         '
+        'lastupdateddata
+        '
+        Me.lastupdateddata.Location = New System.Drawing.Point(232, 273)
+        Me.lastupdateddata.Name = "lastupdateddata"
+        Me.lastupdateddata.Size = New System.Drawing.Size(152, 22)
+        Me.lastupdateddata.TabIndex = 49
+        '
         'InventoryAddEditModal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(541, 454)
+        Me.Controls.Add(Me.lastupdateddata)
         Me.Controls.Add(Me.suppliedfromtext)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.lastupdatedtext)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.minstockleveltext)
         Me.Controls.Add(Me.Label1)
@@ -220,8 +219,8 @@ Partial Class InventoryAddEditModal
     Friend WithEvents CloseBtn As System.Windows.Forms.Button
     Friend WithEvents minstockleveltext As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents lastupdatedtext As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents suppliedfromtext As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents lastupdateddata As System.Windows.Forms.DateTimePicker
 End Class

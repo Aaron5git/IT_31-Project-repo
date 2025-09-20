@@ -12,7 +12,7 @@ Public Class OrderAddEditModal
     Private Sub SaveBtn_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
         Try
             Dim orderId As String = orderidtext.Text.Trim()
-            Dim orderDate As String = orderdatetext.Text.Trim()
+            Dim orderDate As String = orderdatedata.Value.ToString("yyyy-MM-dd")
             Dim orderQty As String = orderqtytext.Text.Trim()
             Dim amountPaid As String = amountpaidtext.Text.Trim()
             Dim prodsPurch As String = prodspurchtext.Text.Trim()
